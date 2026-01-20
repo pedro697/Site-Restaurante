@@ -1,0 +1,919 @@
+/* Variáveis e Reset Básico */
+:root {
+    --color-primary: #7d5e4a; /* Marrom escuro principal */
+    --color-secondary: #9a8470; /* Marrom mais claro */
+    --color-background-light: #f7f3ed; /* Fundo bege claro */
+    --color-text-dark: #333;
+    --color-text-light: #fff;
+    --font-heading: 'Georgia', serif; /* Fonte de cabeçalho (aproximação) */
+    --font-body: 'Arial', sans-serif; /* Fonte do corpo (aproximação) */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    background-color: var(--color-background-light);
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2 {
+    font-family: var(--font-heading);
+}
+
+h1 { font-size: 3em; }
+/* Ajuste para remover ** do HTML e deixar o texto puro */
+h2 { font-size: 2em; color: var(--color-primary); font-weight: normal;}
+
+/* --- Componente Botão --- */
+.btn-cta {
+    display: inline-block;
+    background-color: transparent;
+    border: 1px solid var(--color-text-light);
+    color: var(--color-text-light);
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: background-color 0.3s;
+}
+
+.btn-cta:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- 1. Seção de Cabeçalho (Banner) --- */
+.hero-section {
+    position: relative;
+    height: 80vh; 
+    /* ✅ IMAGEM DE FUNDO DA PRIMEIRA PÁGINA (Exemplo: piscina/fachada) */
+    background: url('img/header-bg.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Escurecimento sutil */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-content .subtitle {
+    letter-spacing: 5px;
+    font-size: 0.8em;
+    margin-bottom: 5px;
+}
+
+.hero-content h1 {
+    font-size: 4em;
+    margin-bottom: 5px;
+}
+
+.hero-content .restaurant-type {
+    font-size: 1.2em;
+    margin-bottom: 25px;
+    letter-spacing: 2px;
+}
+
+
+/* --- 2. Seção de Boas-Vindas --- */
+.welcome-section {
+    background-color: var(--color-background-light);
+    padding: 80px 0;
+}
+
+.welcome-section .container {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start;
+}
+
+.welcome-text {
+    flex: 2;
+    padding-right: 50px;
+}
+
+.welcome-text h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: var(--color-primary);
+}
+
+.welcome-text p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.welcome-images {
+    flex: 1;
+    display: grid;
+    grid-template-areas:
+        "small"
+        "large";
+    gap: 15px;
+    padding-top: 50px;
+}
+
+.welcome-images .img-small {
+    grid-area: small;
+    width: 70%; 
+    height: auto;
+    object-fit: cover;
+    justify-self: end;
+}
+
+.welcome-images .img-large {
+    grid-area: large;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* --- 3. Seção Nosso Espaço --- */
+.space-section {
+    background-color: var(--color-background-light);
+    padding: 60px 0 80px;
+    text-align: center;
+}
+
+.space-section h2 {
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.space-gallery {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.space-gallery img {
+    width: 30%; 
+    height: 300px;
+    object-fit: cover;
+    filter: brightness(0.95);
+}
+
+
+/* --- 4. Seção Nossos Pratos --- */
+.dishes-section {
+    background-color: var(--color-background-light);
+    padding: 40px 0 80px;
+    text-align: center;
+}
+
+.dishes-section h2 {
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.dishes-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.dish-item {
+    width: 30%; 
+    text-align: left;
+}
+
+.dish-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.dish-item .dish-title {
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+
+/* --- 5. Seção Outras Experiências --- */
+.experiences-section {
+    background-color: var(--color-background-light);
+    padding: 40px 0 80px;
+    text-align: center;
+}
+
+.experiences-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.experience-item {
+    width: 30%; 
+    text-align: left;
+}
+
+.experience-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.experience-item .experience-title {
+    font-weight: bold;
+    color: var(--color-text-dark);
+    margin-bottom: 5px;
+}
+
+
+/* --- 6. Seção Feedbacks --- */
+.feedback-section {
+    position: relative;
+    /* ✅ IMAGEM DE FUNDO DA SEÇÃO FEEDBACKS (Exemplo: interior/salão) */
+    background: url('img/feedback-bg.jpg') center/cover no-repeat;
+    color: var(--color-text-light);
+    padding: 100px 0;
+    text-align: center;
+}
+
+.feedback-section .overlay {
+    background-color: rgba(69, 44, 29, 0.8); /* Marrom escuro com transparência */
+}
+
+.feedback-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+.feedback-section h2 {
+    color: var(--color-text-light);
+    margin-bottom: 40px;
+    font-weight: normal;
+}
+
+.feedback-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    text-align: left;
+}
+
+.feedback-item {
+    width: 33%;
+    padding: 15px;
+}
+
+.feedback-item .quote {
+    font-style: italic;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.feedback-item .author {
+    font-weight: bold;
+    text-align: right;
+}
+.feedback-box {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.feedback-question {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.feedback-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.feedback-btn {
+    padding: 10px 25px;
+    font-size: 1em;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.feedback-btn.yes {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.feedback-btn.no {
+    background-color: #d9534f;
+    color: white;
+}
+
+.feedback-btn:hover {
+    opacity: 0.8;
+}
+
+.feedback-response {
+    margin-top: 12px;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+
+/* --- 7. Rodapé --- */
+.footer-section {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 40px 0;
+}
+
+.footer-section .container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 10px;
+    width: 30%; 
+}
+
+.footer-columns {
+    display: flex;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.footer-col {
+    margin-right: 30px;
+}
+
+.footer-col p:first-child {
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+}
+
+.footer-col p {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.social-icons a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-right: 10px;
+    /* Estilo básico para os ícones "F" e "I" */
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    border: 1px solid var(--color-text-light);
+}
+
+/* --- Responsividade Básica --- */
+@media (max-width: 900px) {
+    .welcome-section .container,
+    .space-gallery,
+    .dishes-grid,
+    .experiences-grid,
+    .feedback-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .welcome-text,
+    .welcome-images,
+    .space-gallery img,
+    .dish-item,
+    .experience-item,
+    .feedback-item {
+        width: 90%;
+        padding-right: 0;
+    }
+
+    .footer-columns {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .footer-title {
+        width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero-content h1 {
+        font-size: 3em;
+    }
+}
+/* --- Estilos para o Pop-up (Modal) --- */
+/* --- MODAL (POP-UP) --- */
+
+/* Modal: garanta que este bloco exista no styles.css */
+/* -------- MODAL -------- */
+
+/* ---------- POPUP OVERLAY ---------- */
+.popup-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    backdrop-filter: blur(3px);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+/* Quando abrir */
+.popup-overlay.open {
+    display: flex;
+}
+
+/* ---------- POPUP BOX ---------- */
+.popup {
+    background: #fff;
+    width: 900px;
+    max-width: 95%;
+    display: flex;
+    padding: 25px;
+    border-radius: 12px;
+    gap: 30px;
+    position: relative;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    animation: popupFade 0.25s ease-in-out;
+}
+
+/* ---------- IMAGEM COM TAMANHO FIXO IGUAL PARA TODOS ---------- */
+.popup-img {
+    width: 380px;      /* LARGURA FIXA */
+    height: 280px;     /* ALTURA FIXA */
+    object-fit: cover; /* SEM DEFORMAR */
+    border-radius: 12px;
+    flex-shrink: 0;
+}
+
+/* ---------- ÁREA DE TEXTO E BOTÕES ---------- */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+/* TÍTULO */
+.popup-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #222;
+}
+
+/* DESCRIÇÃO */
+.popup-description {
+    font-size: 19px;
+    line-height: 1.55;
+    margin-bottom: 25px;
+    color: #444;
+}
+
+/* ---------- BOTÕES DE FEEDBACK ---------- */
+.feedback-box {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.feedback-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.feedback-buttons button {
+    padding: 10px 22px;
+    border: none;
+    font-size: 17px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.feedback-buttons .yes {
+    background: #28a745;
+    color: #fff;
+}
+
+.feedback-buttons .no {
+    background: #dc3545;
+    color: #fff;
+}
+
+.feedback-buttons button:hover {
+    opacity: 0.8;
+}
+
+/* ---------- BOTÃO FECHAR ---------- */
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 26px;
+    color: #444;
+    cursor: pointer;
+}
+
+/* ---------- HOVER NAS IMAGENS DA GALERIA ---------- */
+.dish-item img,
+.experience-item img {
+    cursor: pointer;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.dish-item img:hover,
+.experience-item img:hover {
+    transform: scale(1.03);
+    opacity: 0.85;
+    border: 2px solid var(--color-primary);
+}
+
+/* ---------- ANIMAÇÃO ---------- */
+@keyframes popupFade {
+    from { transform: scale(0.95); opacity: 0; }
+    to   { transform: scale(1); opacity: 1; }
+}
+
+/* ---------- RESPONSIVO ---------- */
+@media (max-width: 768px) {
+    .popup {
+        flex-direction: column;
+        width: 95%;
+    }
+
+    .popup-img {
+        width: 100%;
+        height: 250px;
+    }
+
+    .feedback-buttons {
+        flex-direction: row;
+    }
+}
+/* ---------- FOOTER NOVO ---------- */
+
+.new-footer {
+    background: #5c3b2e; /* marrom da imagem */
+    padding: 80px 0;
+    color: #f2e6d8;
+    font-family: 'Poppins', sans-serif;
+}
+
+.footer-container {
+    width: 90%;
+    max-width: 1300px;
+    margin: auto;
+}
+
+.footer-logo {
+    font-size: 38px;
+    font-weight: 300;
+    margin-bottom: 50px;
+}
+
+.footer-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.footer-card {
+    flex: 1;
+    min-width: 280px;
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 25px 30px;
+    border-radius: 6px;
+}
+
+.footer-card h3 {
+    font-size: 22px;
+    font-weight: 300;
+    margin-bottom: 20px;
+}
+
+.footer-card p {
+    font-size: 16px;
+    margin: 8px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Ícones */
+.icon {
+    font-size: 18px;
+}
+
+/* Redes Sociais */
+.social-icons {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    margin-top: 5px;
+}
+
+.social-circle {
+    width: 45px;
+    height: 45px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.social-circle:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* BOTÃO */
+.footer-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    background: transparent;
+    color: #f2e6d8;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.footer-btn:hover {
+    background: rgba(255,255,255,0.15);
+}
+
+/* RESPONSIVO */
+@media (max-width: 900px) {
+    .footer-grid {
+        flex-direction: column;
+    }
+}
+.nosso-espaco img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    cursor: pointer;
+}
+
+/* AUMENTA NO HOVER */
+.nosso-espaco img:hover {
+    transform: scale(1.08);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+#reservar-btn {
+    background-color: rgba(255, 255, 255, 0.2); /* transparente */
+    color: white;
+    padding: 12px 28px;
+    border: 2px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease; /* animação suave */
+}
+
+#reservar-btn:hover {
+    background-color: rgba(255, 255, 255, 0.4); /* mais escuro no hover */
+    transform: scale(1.05); /* opcional: dá uma leve aumentada */
+}
+.sr {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+  will-change: opacity, transform;
+}
+
+.sr.sr-show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ----------------------------
+   Nosso Espaço - zoom refine
+   ---------------------------- */
+/* já existe .nosso-espaco, substituímos comportamento */
+.nosso-espaco {
+    display: flex;
+    flex-direction: column; /* coloca em coluna */
+    align-items: center; /* centraliza horizontalmente */
+    justify-content: center;
+    gap: 20px; /* espaço uniforme entre as imagens */
+}
+
+.nosso-espaco img {
+    width: 100%;
+    max-width: 800px; /* deixa todas no mesmo tamanho */
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.nosso-espaco img:hover {
+    transform: scale(1.05);
+}
+
+/* ----------------------------
+   Micro-interações em botões
+   ---------------------------- */
+button, .btn-cta, .footer-btn {
+  transition: transform 0.12s ease, box-shadow 0.12s ease, opacity 0.2s;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+button:active, .btn-cta:active {
+  transform: translateY(2px) scale(0.995);
+  box-shadow: none;
+}
+
+/* Reservar button specific (semi-transparent -> darker on hover) */
+#reservar-btn {
+  background-color: rgba(255,255,255,0.18);
+  color: var(--white);
+  padding: 12px 28px;
+  border: 1px solid rgba(255,255,255,0.22);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+#reservar-btn:hover {
+  background-color: rgba(255,255,255,0.36);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 30px rgba(0,0,0,0.18);
+}
+
+/* subtle pulse to CTA on idle (optional) */
+#reservar-btn.pulse {
+  animation: pulseCTA 4s infinite;
+}
+@keyframes pulseCTA {
+  0% { box-shadow: 0 8px 16px rgba(0,0,0,0.12); transform: translateY(0); }
+  50% { box-shadow: 0 18px 34px rgba(0,0,0,0.14); transform: translateY(-2px); }
+  100% { box-shadow: 0 8px 16px rgba(0,0,0,0.12); transform: translateY(0); }
+}
+
+/* ----------------------------
+   Drawer (mobile menu)
+   ---------------------------- */
+.nav { position: relative; }
+.hamburger {
+  display: none;
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 44px;
+  height: 44px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  cursor: pointer;
+  z-index: 1200;
+}
+.hamburger span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: var(--white);
+  margin: 3px 0;
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+/* Drawer panel */
+.drawer {
+  position: fixed;
+  right: -420px;
+  top: 0;
+  height: 100vh;
+  width: 360px;
+  background: linear-gradient(180deg, rgba(61,41,34,0.98), rgba(51,33,29,0.98));
+  color: var(--white);
+  padding: 28px;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+  transition: right 0.32s cubic-bezier(.2,.9,.2,1);
+  z-index: 1199;
+}
+
+/* drawer open state */
+.drawer.open {
+  right: 0;
+}
+
+.drawer-close {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: var(--white);
+  font-size: 30px;
+  cursor: pointer;
+}
+
+/* drawer menu list */
+.drawer-menu {
+  list-style: none;
+  margin-top: 28px;
+  padding: 0;
+}
+.drawer-menu li {
+  margin: 18px 0;
+}
+.drawer-menu a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 18px;
+  opacity: 0.95;
+  transition: opacity .2s, transform .2s;
+}
+.drawer-menu a:hover { opacity: 1; transform: translateX(6px); }
+
+/* only show hamburger on small screens */
+@media (max-width: 900px) {
+  .hamburger { display: flex; }
+}
+
+/* ----------------------------
+   Footer animations (UX)
+   ---------------------------- */
+.footer-card {
+  transition: transform 0.28s ease, box-shadow 0.28s ease;
+}
+.footer-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* social icon microinteraction */
+.social-circle {
+  transition: transform 0.22s ease, background 0.22s;
+}
+.social-circle:hover {
+  transform: translateY(-6px) rotate(-6deg);
+  background: rgba(255,255,255,0.12);
+}
+
+/* ----------------------------
+   Apply scroll-reveal defaults to key areas
+   ---------------------------- */
+.welcome-text, .nosso-espaco img, .dishes-grid .dish-item, .feedback-item, .footer-card {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .7s ease, transform .7s ease;
+}
+
+/* helper when revealed */
+.revealed {
+  opacity: 1 !important;
+  transform: translateY(0) !important;
+}
+
+/* ----------------------------
+   small responsive tweaks
+   ---------------------------- */
+@media (max-width: 768px) {
+  .nosso-espaco img { height: 240px; }
+  .popup-img { height: 220px; width: 100%; }
+  #reservar-btn { padding: 10px 18px; font-size: 0.95rem; }
+}
